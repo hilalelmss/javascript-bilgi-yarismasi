@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <script type="text/javascript">
+
 	function tamamla() {
 		var soruSayisi = 5;
 		var gelenCevap = new Array();
@@ -11,128 +12,109 @@
 		var yanlis = 0;
 		var cevap = 0;
 		var sonuc = "";
-		for (i = 1; i <= soruSayisi; i++) {
-			var secenekler = document.getElementsByName("s" + i);
-			for (j = 0; j < secenekler.length; j++) {
-				if (secenekler[j].checked) {
-					if (secenekler[j].value == dogruCevap[i - 1]) {
-						cevap = 1;
-					} else {
-						cevap = 0;
+			for (i = 1; i <= soruSayisi; i++) {
+				var secenekler = document.getElementsByName("s" + i);
+				for (j = 0; j < secenekler.length; j++) {
+					if (secenekler[j].checked) {
+						if (secenekler[j].value == dogruCevap[i - 1]) {
+							cevap = 1;
+						} else {
+							cevap = 0;
+						}
+						gelenCevap.push(secenekler[j].value);
 					}
-					gelenCevap.push(secenekler[j].value);
+				}
+		}
+			for (k = 0; k < soruSayisi; k++) {
+				if (gelenCevap[k] == dogruCevap[k]) {
+					dogru++;
+				} else {
+					yanlis++;
 				}
 			}
-		}
-		for (k = 0; k < soruSayisi; k++) {
-			if (gelenCevap[k] == dogruCevap[k]) {
-				dogru++;
-			} else {
-				yanlis++;
-			}
-		}
-
 		sonuc += "Sonuç: " + dogru + " Doğru, " + yanlis + " Yanlış";
 		var puan = parseInt(dogru) * 10 + parseInt(yanlis) * (-5);
-		if (puan <= 0) {
-			audio = new Audio();
-			audio.src = "audio/uyarı.mp3";
-			audio.play();
-			puan = 0;
-			alert("Puanınız:" + puan + "  :( tekrar deneyin!");
-
-		} else {
-			audio = new Audio();
-			audio.src = "audio/tebrikler.mp3";
-			audio.play();
-			alert("Puanınız:" + puan + "  :)  tebrikler");
-		}
+			if (puan <= 0) {
+				audio = new Audio();
+				audio.src = "audio/uyarı.mp3";
+				audio.play();
+				puan = 0;
+			var delay=2000;
+			setTimeout(() => {
+				alert("Puanınız:" + puan + "  tekrar deneyin!  :(");
+			}, delay);
+			}
+			
+			else {
+				audio = new Audio();
+				audio.src = "audio/tebrikler.mp3";
+				audio.play();
+				setTimeout(() => {
+					alert("Puanınız:" + puan + "  tebrikler  :) ");
+				}, 2000);
+			}
 	}
 </script>
 </head>
 <body>
 	<form name="formTest">
-
-		<fieldset class="radiogroup">
-			<legend>Soru 1: İtalyancadan Türkçeye geçen"tavla"
-				kelimesinin kökeninin anlamı nedir?</legend>
+		<fieldset style="border-radius: 5px; padding: 5px; min-height:20px; color:#2980B9;
+		 text-align:center; font-family:fantasy; font-size: 26px ">HİLAL ELMAS</fieldset>
+		 
+		<fieldset style="border-radius:5px; color:#2E86C1; padding: 5px; min-height:20px; font-family:cursive;" class="radiogroup" >
+			<legend>Soru 1: İtalyancadan Türkçeye geçen"tavla" kelimesinin kökeninin anlamı nedir?</legend>
 			<ul class="radio" style="list-style: none">
-				<li>A) <input type="radio" name="s1" value="A" /> <label>Tahta</label></li>
+				<li>A) <input type="radio"   name="s1" value="A" /> <label>Tahta</label></li>
 				<li>B) <input type="radio" name="s1" value="B" /> <label>Pul</label></li>
 				<li>C) <input type="radio" name="s1" value="C" /><label>Zar</label></li>
 				<li>D) <input type="radio" name="s1" value="D" /><label>Eş</label></li>
-				<li>E) <input type="radio" name="s1" value="E" /><label>Düşeş
-				</label></li>
+				<li>E) <input type="radio" name="s1" value="E" /><label>Düşeş</label></li>
 			</ul>
 		</fieldset>
-
-		<fieldset class="radiogroup">
-			<legend>Soru 2: “Sinekli Bakkal” romanının yazarı
-				aşağıdakilerden hangisidir? </legend>
+		<fieldset style="border-radius:5px; color:#7FB3D5; padding: 5px; min-height:20px; font-family:cursive;" class="radiogroup">
+			<legend>Soru 2: “Sinekli Bakkal” romanının yazarı aşağıdakilerden hangisidir? </legend>
 			<ul class="radio" style="list-style: none">
-				<li>A) <input type="radio" name="s2" value="A" /> <label>Reşat
-						Nuri Güntekin </label></li>
-				<li>B) <input type="radio" name="s2" value="B" /> <label>Halide
-						Edip Adıvar </label></li>
-				<li>C) <input type="radio" name="s2" value="C" /><label>Ziya
-						Gökalp </label></li>
-				<li>D) <input type="radio" name="s2" value="D" /><label>Ömer
-						Seyfettin</label></li>
-				<li>E) <input type="radio" name="s2" value="E" /><label>Yaşar
-						Kemal </label></li>
+				<li>A) <input type="radio" name="s2" value="A" /> <label>Reşat Nuri Güntekin </label></li>
+				<li>B) <input type="radio" name="s2" value="B" /> <label>Halide Edip Adıvar </label></li>
+				<li>C) <input type="radio" name="s2" value="C" /><label>Ziya Gökalp </label></li>
+				<li>D) <input type="radio" name="s2" value="D" /><label>Ömer Seyfettin</label></li>
+				<li>E) <input type="radio" name="s2" value="E" /><label>Yaşar Kemal </label></li>
 			</ul>
 		</fieldset>
 
-		<fieldset class="radiogroup">
+		<fieldset style="border-radius:5px; color:#ABEBC6; padding: 5px; min-height:20px; font-family:cursive;" class="radiogroup">
 			<legend>Soru 3: Romen rakamında hangi sayı yoktur? </legend>
 			<ul class="radio" style="list-style: none">
-				<li>A) <input type="radio" name="s3" value="A" /> <label>50
-				</label></li>
-				<li>B) <input type="radio" name="s3" value="B" /> <label>100
-				</label></li>
-				<li>C) <input type="radio" name="s3" value="C" /><label>0
-				</label></li>
+				<li>A) <input type="radio" name="s3" value="A" /><label>50</label></li>
+				<li>B) <input type="radio" name="s3" value="B" /><label>100</label></li>
+				<li>C) <input type="radio" name="s3" value="C" /><label>0</label></li>
 				<li>D) <input type="radio" name="s3" value="D" /><label>10000</label></li>
-				<li>E) <input type="radio" name="s3" value="E" /><label>10
-				</label></li>
+				<li>E) <input type="radio" name="s3" value="E" /><label>10</label></li>
 			</ul>
 		</fieldset>
 
-		<fieldset class="radiogroup">
+		<fieldset style="border-radius:5px; color:#45B39D; padding: 5px; min-height:20px; font-family:cursive;" class="radiogroup">
 			<legend>Soru 4:Hangi Ülkenin İki Tane Başkenti Vardır? </legend>
 			<ul class="radio" style="list-style: none">
-				<li>A) <input type="radio" name="s4" value="A" /> <label>Kamboçya
-				</label></li>
-				<li>B) <input type="radio" name="s4" value="B" /> <label>Venezuela
-				</label></li>
-				<li>C) <input type="radio" name="s4" value="C" /><label>El
-						Salvador </label></li>
-				<li>D) <input type="radio" name="s4" value="D" /><label>Güney
-						Afrika </label></li>
-				<li>E) <input type="radio" name="s4" value="E" /><label>Senegal
-				</label></li>
+				<li>A) <input type="radio" name="s4" value="A" /> <label>Kamboçya</label></li>
+				<li>B) <input type="radio" name="s4" value="B" /> <label>Venezuela</label></li>
+				<li>C) <input type="radio" name="s4" value="C" /><label>El Salvador </label></li>
+				<li>D) <input type="radio" name="s4" value="D" /><label>Güney Afrika </label></li>
+				<li>E) <input type="radio" name="s4" value="E" /><label>Senegal</label></li>
 			</ul>
 		</fieldset>
 
-		<fieldset class="radiogroup">
-			<legend>Soru 5:Bir sebepten dolayı tek kulağına küpe takan
-				Osmanlı Padişahı kimdir? </legend>
+		<fieldset style="border-radius:5px; color:#45B39D; padding: 5px; min-height:20px; font-family:cursive;" class="radiogroup">
+			<legend>Soru 5:Bir sebepten dolayı tek kulağına küpe takan	Osmanlı Padişahı kimdir? </legend>
 			<ul class="radio" style="list-style: none">
-				<li>A) <input type="radio" name="s5" value="A" /> <label>Orhan
-						Bey </label>
-				</li>
-				<li>B) <input type="radio" name="s5" value="B" /> <label>Kanuni
-						Sultan Süleyman </label></li>
-				<li>C) <input type="radio" name="s5" value="C" /><label>Fatih
-						Sultan Selim </label></li>
-				<li>D) <input type="radio" name="s5" value="D" /><label>II.Abdülhamit
-				</label></li>
-				<li>E) <input type="radio" name="s5" value="E" /><label>Yavuz
-						Sultan Selim </label></li>
+				<li>A) <input type="radio" name="s5" value="A" /> <label>Orhan Bey </label></li>
+				<li>B) <input type="radio" name="s5" value="B" /> <label>Kanuni	Sultan Süleyman </label></li>
+				<li>C) <input type="radio" name="s5" value="C" /><label>Fatih Sultan Selim </label></li>
+				<li>D) <input type="radio" name="s5" value="D" /><label>II.Abdülhamit</label></li>
+				<li>E) <input type="radio" name="s5" value="E" /><label>YavuzSultan Selim </label></li>
 			</ul>
 		</fieldset>
-
-		<input type="button" value="Tamamla" onclick="tamamla()" /><br />
+		<input type="button"  style="color: #2980B9;font-family:cursive; " value="Tamamla" onclick="tamamla()" /><br />
 	</form>
 	<div id="sonuc"></div>
 </body>
