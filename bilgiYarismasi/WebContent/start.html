@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<style type="text/css">
+body {
+     font-family: Verdana, monospace, sans-serif;
+     font-size: 12px;
+     font-weight: bold;
+     text-align: justify;
+     min-height: 800px;
+     background: #52aa6f; /* Old browsers */
+     background: -moz-linear-gradient(top, #52aa6f 0%, #4096ee 100%); /* FF3.6+ */
+     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#52aa6f), color-stop(100%,#4096ee)); /* Chrome,Safari4+ */
+     background: -webkit-linear-gradient(top, #52aa6f 0%,#4096ee 100%); /* Chrome10+,Safari5.1+ */
+     background: -o-linear-gradient(top, #52aa6f 0%,#4096ee 100%); /* Opera 11.10+ */
+     background: -ms-linear-gradient(top, #52aa6f 0%,#4096ee 100%); /* IE10+ */
+     background: linear-gradient(to bottom, #52aa6f 0%,#4096ee 100%); /* W3C */
+     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#52aa6f', endColorstr='#4096ee',GradientType=0 ); /* IE6-9 */
+ }
+p {
+	 font-family: courier;
+    font-size: 500%;
+    font-style: oblique;
+	color:#2980B9;
+    margin-left: 500px;
+	
+}
+
+.balls{
+   
+    margin-top: 300px;
+    margin-bottom: 400px;
+    margin-right: 150px;
+    margin-left: 650px;
+    
+ 
+}
+
+div {
+    width:50px;
+    height:50px;
+    border-radius:200%;
+    background-color:#ef8585;
+    display:inline-block;
+    position: relative;
+    -webkit-animation: ball 2s infinite alternate forwards; 
+    animation: ball 2s infinite alternate forwards;
+}
+.ball1{-webkit-animation-timing-function: cubic-bezier(0.1,0,1,1);background-color:#A9CCE3; }
+.ball2{-webkit-animation-timing-function: cubic-bezier(0.25,0.1,0.25,1); background-color:#7FB3D5;}
+.ball3{-webkit-animation-timing-function:cubic-bezier(0.50,0.2,0.50,1);;background-color:#2E86C1; }
+.ball4{-webkit-animation-timing-function: cubic-bezier(0.75,0.3,0.75,1); background-color:#2980B9;}
+.ball5{-webkit-animation-timing-function: cubic-bezier(1,0.4,1,1);background-color:#239B56; }
+.ball6{-webkit-animation-timing-function: cubic-bezier(1.25,0.5,1.25,1); background-color:#45B39D;}
+.ball7{-webkit-animation-timing-function: cubic-bezier(1.50,0.6,1.50,1);background-color:#7DCEA0; }
+.ball8{-webkit-animation-timing-function: cubic-bezier(0.42,0,0.58,1);background-color:#ABEBC6;}
+/* Standard syntax */
+.ball1{animation-timing-function: cubic-bezier(0.1,0,1,1);}
+.ball2 {animation-timing-function: cubic-bezier(0.25,0.1,0.25,1);}
+.ball3 {animation-timing-function: cubic-bezier(0.50,0.2,0.50,1);}
+.ball4 {animation-timing-function: cubic-bezier(0.75,0.3,0.75,1);}
+.ball5 {animation-timing-function: cubic-bezier(1,0.4,1,1);}
+.ball6 {animation-timing-function: cubic-bezier(1.25,0.5,1.25,1);}
+.ball7 {animation-timing-function: cubic-bezier(1.50,0.6,1.50,1);}
+.ball8 {animation-timing-function: cubic-bezier(0.42,0,0.58,1);}
+@-webkit-keyframes ball {
+    from {top: 0px;}
+    to {top: 1650px;}
+}
+
+@keyframes ball {
+    from {top: 0px;}
+    to {top: 350px;}
+}
+
+
+</style>
+
+</head>
+
+
+
+<body>
+<p id="demo" onmousedown="myFunction()" onclick="start()" >Başlamak İçin Tıklayın</p>
+	<script>
+		function myFunction() {
+			document.getElementById("demo").style.color = "green";
+			audio = new Audio();
+			audio.src = "audio/start.mp3";
+			audio.play();
+			document.getElementById("demo").innerHTML = "Yarışma Başladı..";
+		var timer = window.setInterval(start, 2000);
+		function start() {
+		self.location("parameters.html");
+		}
+
+		}
+		
+	</script>
+
+
+	
+</body>
+<section class="balls">
+<div class="ball1"></div>
+<div class="ball2"></div>
+<div class="ball3"></div>
+<div class="ball4"></div>
+<div class="ball5"></div>
+<div class="ball6"></div>
+<div class="ball7"></div>
+<div class="ball8"></div>
+</section>
+
+</html>
